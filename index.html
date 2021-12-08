@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <title>ES Project</title>
+
+  <!-- google fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;900&family=Ubuntu:wght@300;400;700&display=swap"rel="stylesheet">
+
+  <!-- css stylesheets -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/stylespepe.css">
+
+  <!-- font awesome -->
+  <script src="https://kit.fontawesome.com/9e17018c97.js" crossorigin="anonymous"></script>
+
+  <!--bootstrap scripts -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+
+
+  <!-- <script type="module" src="index.js"></script> -->
+  <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+  <script type="module">
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBBI_tZy13q4NTpUvhSktaPnNOIjQPDylo",
+      authDomain: "esp8266-23cf9.firebaseapp.com",
+      databaseURL: "https://esp8266-23cf9-default-rtdb.firebaseio.com",
+      projectId: "esp8266-23cf9",
+      storageBucket: "esp8266-23cf9.appspot.com",
+      messagingSenderId: "1090781564859",
+      appId: "1:1090781564859:web:1627f79042529fc9573e9e",
+      measurementId: "G-8ETEE1KLGR"
+    };
+  
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    // const analytics = getAnalytics(app);
+    var ref = firebase.database().ref();                           
+    ref.on("value", function(snapshot){
+    // output.innerHTML = JSON.stringify(snapshot.val(), null, 2);
+    setInterval(()=>{
+
+      const v1=snapshot.val()
+    console.log(snapshot.val())
+    // console.log(v1.)
+    // document.getElementById("humidity").innerHTML=v1.Humidity
+    document.getElementById("temperature").innerHTML=v1.Temperature
+    document.getElementById("gassensor").innerHTML=v1.GasSensor
+    },1000)
+
+});
+
+    
+  </script>
+  <script src="index.js"></script>
+</head>
+
+<body>
+
+  <section id="title">
+
+    <div
+      
+      class="container-fluid">
+      <!-- Nav Bar -->
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="">
+          <h1>ES PROJECT</h1>
+        </a>
+        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" -->
+          <!-- aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> -->
+          <!-- <span class="navbar-toggler-icon"></span> -->
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto ">
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="https://rohithvudayana.github.io/rohith/">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#pricing">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#cta">Download</a>
+            </li> -->
+          </ul>
+        </div>
+
+      </nav>
+
+      <!-- Title -->
+
+      <div class="row">
+
+        <div class="col-lg-6">
+          <img class="title-image" src="images pepe/pepeimg.jpeg" alt="PROJECT image">
+        </div>
+
+        <div class="col-lg-6">
+          <h1>surveillance robot</h1>
+          <!-- <button type="button" class="btn btn-dark btn-lg download-button"><i class="fas fa-burn"></i><h3>Humidity</h3><p id="humidity"></p></button> -->
+          <button type="button" class="btn btn-dark btn-lg download-button"><i class="fas fa-wind"></i>
+            <h3>GasSensor</h3>
+            <p id="gassensor"></p>
+          </button>
+          <button type="button" class="btn btn-dark btn-lg download-button"><i class="fas fa-thermometer-half"></i>
+            <h3>Temperature</h3>
+            <p id="temperature"></p>
+          </button>
+          <button type="button" class="btn btn-lg btn-dark download-button"><i class="fas fa-camera"></i>
+            <h3>Cam Cast</h3><a class="footer-link" href="http://192.168.29.93">cam cast</a>
+            <p class=""></p>
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <section id="testimonials">
+
+    <div id="testimonial-carousel" class="carousel slide" data-ride="carousel" data-interval="2000"
+      data-bs-pause="hover">
+
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+      </div>
+
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <h2></h2>
+          <img class="testimonial-image" src="images pepe/pepeimg2.jpeg" alt="dog-profile">
+          <em>Pebbles, New York</em>
+        </div>
+        <div class="carousel-item">
+          <h2 class="testimonial-text"></h2>
+          <img class="testimonial-image" src="images pepe/pepeimg.jpeg" alt="lady-profile">
+          <em>Beverly, Illinois</em>
+        </div>
+        <!-- <div class="carousel-item">
+          <h2 class="testimonial-text"></h2>
+          <img class="testimonial-image" src="images pepe/background.jpg" alt="lady-profile">
+          <em>Beverly, Illinois</em>
+        </div> -->
+
+      </div>
+
+      <button class="carousel-control-prev" type="button" href="#testimonial-carousel" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+        <!-- <span class="visually-hidden">Previous</span> -->
+      </button>
+      <button class="carousel-control-next" type="button" href="#testimonial-carousel" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+        <!-- <span class="visually-hidden">Next</span> -->
+      </button>
+
+    </div>
+  </section>
+
+
+  <section id="names">
+    <div
+      style="background-image: url('images\ pepe/fow bg.jpg'); background-repeat: no-repeat;   background-size: 100% 100%;"
+      class="row">
+      <div class="rohith col-lg-6">
+        <h2> **GROUP MEMBERS:</h2>
+        <h3>>> Akshat</h3>
+        <h3>>> Madhava</h3>
+        <h3>>> Rohith</h3>
+      </div>
+      <div class="lecturer col-lg-6">
+        <h2> **PROFESSOR:</h2>
+        <h3>>> Raja vara prasad sir</h3>
+      </div>
+    </div>
+  </section>
+
+</body>
+
+</html>
+
+
+<!-- <a class="footer-link" href="">humidity</a> -->
